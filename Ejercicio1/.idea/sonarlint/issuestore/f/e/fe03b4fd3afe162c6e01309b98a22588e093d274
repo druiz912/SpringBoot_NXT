@@ -1,0 +1,8 @@
+
+b
+java:S2095"LUse try-with-resources or close this "BufferedReader" in a "finally" clause.(´ÓñÊ
+U
+java:S1854":Remove this useless assignment to local variable "partes".(ÝÄ¤”ùÿÿÿÿ
+b
+java:S1612*"@Replace this lambda with method reference 'System.out::println'.(÷•–Ìþÿÿÿÿ8ôç¾æž0
+S	java:S106*"9Replace this use of System.out or System.err by a logger.(÷•–Ìþÿÿÿÿ
