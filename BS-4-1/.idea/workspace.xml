@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="2e52e2cd-1e1c-41b0-8c46-3e2601f7e827" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../BS-3/src/main/java/com/druiz/bs3/ClaseInicial.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../BS-3/src/main/java/com/druiz/bs3/ClaseSecundaria.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../BS-3/src/main/java/com/druiz/bs3/ClaseTerciaria.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../BS-3/src/main/java/com/druiz/bs3/models/Persona.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../BS-4/src/main/java/com/druiz/bs4/Controller1.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../BS-4/src/main/java/com/druiz/bs4/myProperties.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../crud/src/main/java/com/druiz/crud/Persona.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../crud/src/main/java/com/druiz/crud/PersonaService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../crud/src/main/java/com/druiz/crud/PersonaServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../crud/src/main/java/com/druiz/crud/configBean.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../crud/src/main/java/com/druiz/crud/controllers/DeleteController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../crud/src/main/java/com/druiz/crud/controllers/GetController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../crud/src/main/java/com/druiz/crud/controllers/PostController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../crud/src/main/java/com/druiz/crud/controllers/PutController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rs1/src/main/java/com/druiz/rs1/controllers/Controller1.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../rs1/src/main/java/com/druiz/rs1/models/Persona.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="Use Maven wrapper" />
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="2C9YkkgfPc3XBTY4pVSXnor5lsn" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "C:/Users/daniel.ruiz/Desktop/Dani/JAVA/Ejercicios/BS-4-1"
+  }
+}]]></component>
+  <component name="RunManager">
+    <configuration name="Bs41Application" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.druiz.BS41.Bs41Application" />
+      <module name="BS-4-1" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="2e52e2cd-1e1c-41b0-8c46-3e2601f7e827" name="Changes" comment="" />
+      <created>1658216417316</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1658216417316</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
