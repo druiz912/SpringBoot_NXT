@@ -9,7 +9,7 @@
 ### `Los ejercicios están ordenados según he ido realizándolos:`
 
 ***
-- [x] [(HEAD -> main) EJ2 - CRUD with validation](https://github.com/druiz912/JAVA_EJERCICIOS/tree/master/crudvalidation)
+- [x] [EJ2 - CRUD with validation](https://github.com/druiz912/JAVA_EJERCICIOS/tree/master/crudvalidation)
 - [x] [BS5 - Logging en Spring Boot](https://github.com/druiz912/JAVA_EJERCICIOS/tree/master/BS-5)
 - [x] [BS4 - Properties en Spring Boot & Profiles](https://github.com/druiz912/JAVA_EJERCICIOS/tree/master/BS-4)
 - [x] [BS3 - Ciclo de vida Beans](https://github.com/druiz912/JAVA_EJERCICIOS/tree/master/BS-3)
