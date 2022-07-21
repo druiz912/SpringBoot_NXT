@@ -1,12 +1,12 @@
 # Backend
 
-<marquee style="width: 60%; color: green; font-size: 25px;">
-<b>Backend exercises in Bosonit</b></marquee>
+<marquee style="width: 45%; color: green; font-size: 25px;">
+<b>Ejercicios de BackEnd en Bosonit</b></marquee>
 
 #
 ![Bosonit-logo](https://cdn.bosonit.com/n-content/uploads/2021/12/bosonit_web.png)
 
-### `The exercises are ordered according to their completion and commit:`
+### `Los ejercicios están ordenados según he ido realizándolos:`
 
 ***
 - [x] [(HEAD -> main) EJ2 - CRUD with validation](https://github.com/druiz912/JAVA_EJERCICIOS/tree/master/crudvalidation)
