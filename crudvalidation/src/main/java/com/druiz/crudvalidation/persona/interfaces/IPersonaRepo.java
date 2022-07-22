@@ -7,7 +7,4 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import java.util.List;
 
 @EnableJpaRepositories
-public interface IPersonaRepo extends JpaRepository<Persona, Integer> {
-    List<Persona> findByName(String username);
-
-}
+public interface IPersonaRepo extends JpaRepository<Persona, Integer> { List<Persona> findByName(String username);}
