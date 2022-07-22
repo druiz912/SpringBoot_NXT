@@ -7,8 +7,8 @@
 ![Bosonit-logo](https://cdn.bosonit.com/n-content/uploads/2021/12/bosonit_web.png)
 
 ### `Los ejercicios están ordenados según he ido realizándolos:`
-
 ***
+- [x] [BP1 - Arquitectura Hexagonal](https://github.com/druiz912/JAVA_EJERCICIOS/tree/master/BP-1)
 - [x] [EJ2 - CRUD with validation](https://github.com/druiz912/JAVA_EJERCICIOS/tree/master/crudvalidation)
 - [x] [BS5 - Logging en Spring Boot](https://github.com/druiz912/JAVA_EJERCICIOS/tree/master/BS-5)
 - [x] [BS4 - Properties en Spring Boot & Profiles](https://github.com/druiz912/JAVA_EJERCICIOS/tree/master/BS-4)
