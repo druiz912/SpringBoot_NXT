@@ -1,0 +1,28 @@
+
+ñ
+java:S1598"ÚThis file "PersonOutputDTO.java" should be located in "com\bosonit\exercises\bs8\infrastructure\dto\output" directory, not in "C:\Users\daniel.ruiz\Desktop\Dani\JAVA\Ejercicios\PROYECTO_GUIA\infrastructure\dto\output".(¸‚åä
+B
+java:S1068
+",Remove this unused "idPerson" private field.(þžŒð
+C
+java:S1068"(Remove this unused "user" private field.(‡ÏÇ³øÿÿÿÿ
+G
+java:S1068",Remove this unused "password" private field.(œãë­úÿÿÿÿ
+>
+java:S1068"(Remove this unused "name" private field.(Ë¥¼
+F
+java:S1068"+Remove this unused "surname" private field.(—‡¨åûÿÿÿÿ
+F
+java:S1068"0Remove this unused "companyEmail" private field.(Ïž¹
+G
+java:S1068"1Remove this unused "personalEmail" private field.(ß¿œ¿
+>
+java:S1068"(Remove this unused "city" private field.(“øÌà
+E
+java:S1068"*Remove this unused "active" private field.(¿‡ÚÙÿÿÿÿÿ
+E
+java:S1068"/Remove this unused "createdDate" private field.(™Å‰˜
+G
+java:S1068",Remove this unused "imageUrl" private field.(Õ¹µÔýÿÿÿÿ
+I
+java:S1068"3Remove this unused "terminationDate" private field.(®Í¢Í
