@@ -1,14 +1,14 @@
 package com.druiz.ej3.persona.application;
 
-import com.druiz.ej3.persona.application.port.IPersonaService;
-import com.druiz.ej3.persona.domain.PersonaEntity;
+import com.druiz.ej3.exceptions.NotFoundException;
+import com.druiz.ej3.exceptions.UnprocesableException;
 import com.druiz.ej3.persona.infrastructure.controller.dto.input.PersonaInputDto;
 import com.druiz.ej3.persona.infrastructure.controller.dto.output.PersonaOutputDto;
 import com.druiz.ej3.persona.infrastructure.controller.dto.output.PersonaProfesorOutputDto;
 import com.druiz.ej3.persona.infrastructure.controller.dto.output.PersonaStudentOutputDto;
 import com.druiz.ej3.persona.infrastructure.repository.IPersonaRepoJPA;
-import com.druiz.ej3.exceptions.NotFoundException;
-import com.druiz.ej3.exceptions.UnprocesableException;
+import com.druiz.ej3.persona.application.port.IPersonaService;
+import com.druiz.ej3.persona.domain.PersonaEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,33 +24,31 @@ public class PersonaServiceImpl implements IPersonaService {
 
     @Override
     public PersonaOutputDto addPersona(@Valid PersonaInputDto personaInputDto) throws Exception {
-        PersonaEntity persona = new PersonaEntity(personaInputDto);
-        repo.save(persona);
-        return new PersonaOutputDto(persona);
+        try {
+            PersonaEntity persona = new PersonaEntity(personaInputDto);
+            repo.save(persona);
+            return new PersonaOutputDto(persona);
+        }catch (Exception e){
+            throw new UnprocesableException(e.getMessage());
+        }
     }
 
-//Segunda parte del ejercicio
+    //Segunda parte del ejercicio
     @Override
     public PersonaOutputDto getPersonaId(String id, String outputType) throws Exception {
         if (outputType.equalsIgnoreCase("persona")) {
-            PersonaEntity personaEntity = repo.findById(id)
-                    .orElseThrow(() -> new Exception("No se encuentra a la Persona con el ID: " + id));
-            String.valueOf(id);
+            PersonaEntity personaEntity = repo.findById(id).orElseThrow(
+                    () -> new NotFoundException("No se encuentra a la Persona con el id: " + id));
             return new PersonaOutputDto(personaEntity);
-
         } else if (outputType.equalsIgnoreCase("profesor")) {
-            PersonaEntity personaEntity = repo.findById(id)
-                    .orElseThrow(() -> new Exception("No se encuentra al Profesor con el ID: " + id));
-            String.valueOf(id);
+            PersonaEntity personaEntity = repo.findById(id).orElseThrow(
+                    () -> new NotFoundException("No se encuentra al Profesor con el id: " + id));
             return new PersonaProfesorOutputDto(personaEntity);
-
         } else if (outputType.equalsIgnoreCase("student")) {
-            PersonaEntity personaEntity = repo.findById(id)
-                    .orElseThrow(() -> new Exception("No se ha encontrado al Student con el ID: " + id));
-            String.valueOf(id);
+            PersonaEntity personaEntity = repo.findById(id).orElseThrow(
+                    () -> new NotFoundException("No se ha encontrado al Student con el id: " + id));
             return new PersonaStudentOutputDto(personaEntity);
         }
-
         return new PersonaOutputDto(new PersonaEntity());
     }
 
@@ -65,11 +63,11 @@ public class PersonaServiceImpl implements IPersonaService {
             if (outputType.equalsIgnoreCase("persona")) {
                 repo.findByName(name).forEach(personaEntity -> personaOutputDTOList.add(new PersonaOutputDto(personaEntity)));
                 return personaOutputDTOList;
-            //CASO PROFESOR
+                //CASO PROFESOR
             } else if (outputType.equalsIgnoreCase("profesor")) {
                 repo.findByName("profesor").forEach(personaEntity -> personaOutputDTOList.add(new PersonaProfesorOutputDto(personaEntity)));
                 return personaProfesorOutputDTOS;
-            // CASO ESTUDIANTE
+                // CASO ESTUDIANTE
             } else if (outputType.equalsIgnoreCase("student")) {
                 repo.findByName("student").forEach(personaEntity -> personaStudentOutputDTOList.add(new PersonaStudentOutputDto(personaEntity)));
                 return personaStudentOutputDTOList;
@@ -91,12 +89,12 @@ public class PersonaServiceImpl implements IPersonaService {
                 repo.findAll().forEach(
                         personaEntity -> listPersonaOutputDto.add(new PersonaOutputDto(personaEntity)));
                 return listPersonaOutputDto;
-            //CASO PROFESOR
+                //CASO PROFESOR
             } else if (outputType.equalsIgnoreCase("profesor")) {
                 repo.findAll().forEach((
                         personaEntity -> listPersonaProfesorOutputDto.add(new PersonaProfesorOutputDto(personaEntity))));
                 return listPersonaProfesorOutputDto;
-            //CASO ESTUDIANTE
+                //CASO ESTUDIANTE
             } else if (outputType.equalsIgnoreCase("student")) {
                 repo.findAll().forEach(personaEntity -> listPersonaStudentOutputDto.add(new PersonaStudentOutputDto(personaEntity)));
                 return listPersonaStudentOutputDto;
@@ -118,18 +116,18 @@ public class PersonaServiceImpl implements IPersonaService {
 
     @Override
     public void deletePersona(String id) {
-        PersonaEntity personaEnt = repo.findById(id).orElseThrow(() -> new NotFoundException("No se ha encontrado el ID"));
+        PersonaEntity personaEnt = repo.findById(id).orElseThrow(
+                () -> new NotFoundException("No se ha podido encontrar el id: " + id));
         repo.delete(personaEnt);
         repo.save(personaEnt);
     }
 
 
-
     private void validate(PersonaInputDto personaInputDTO) throws UnprocesableException {
         String usuario = personaInputDTO.getUsuario();
         if (usuario == null) throw new UnprocesableException("Error: user is null.");
-       /* if (usuario.length() < 6 || usuario.length() > 10)
-            throw new UnprocesableException("Error: user length must be between 6 and 10 characters");*/
+        if (usuario.length() < 6 || usuario.length() > 10)
+            throw new UnprocesableException("Error: user length must be between 6 and 10 characters");
         if (personaInputDTO.getPassword() == null) throw new UnprocesableException("Error: password is null.");
         if (personaInputDTO.getName() == null) throw new UnprocesableException("Error: name is null.");
         if (personaInputDTO.getCompany_email() == null)

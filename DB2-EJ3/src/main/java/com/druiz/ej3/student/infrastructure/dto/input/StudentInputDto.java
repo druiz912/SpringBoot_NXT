@@ -13,4 +13,5 @@ public class StudentInputDto implements Serializable {
     private String num_hours_week;
     private String comentarios;
     private String branch;
+    private List<StudentCourseEntity> estudios;
 }

@@ -1,5 +1,6 @@
 package com.druiz.ej3.studentCourse.application;
 
+import com.druiz.ej3.exceptions.NotFoundException;
 import com.druiz.ej3.student.domain.StudentEntity;
 import com.druiz.ej3.student.infrastructure.repo.IStudentRepo;
 import com.druiz.ej3.studentCourse.domain.StudentCourseEntity;
@@ -40,9 +41,8 @@ public class StudentCourseServiceImpl implements IStudentCourseService {
     }
 
     @Override
-    public void deleteById(String id) throws Exception {
-        StudentCourseEntity studentCourse = studentCourseRepo.findById(id)
-                .orElseThrow(() -> new Exception("No se ha encontrado el ID: " + id));
+    public void deleteById(String id) {
+        studentCourseRepo.findById(id).orElseThrow(() -> new NotFoundException("No se ha encontrado el ID: " + id));
         studentCourseRepo.deleteById(id);
     }
 }

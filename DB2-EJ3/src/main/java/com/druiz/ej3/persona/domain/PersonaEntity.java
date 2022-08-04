@@ -1,5 +1,6 @@
 package com.druiz.ej3.persona.domain;
 
+import com.druiz.ej3.exceptions.UnprocesableException;
 import com.druiz.ej3.persona.infrastructure.controller.dto.input.PersonaInputDto;
 import com.druiz.ej3.profesor.domain.ProfesorEntity;
 import com.druiz.ej3.shared.sequences.StringPrefixedSequenceIdGenerator;
@@ -85,36 +86,44 @@ public class PersonaEntity implements Serializable {
     @Column(name = "Date")
     private Date termination_date;
 
+
+
     public PersonaEntity(PersonaInputDto pInputDto) {
-        if (pInputDto == null) return;
-        id_persona = pInputDto.getId_persona();
-        usuario = pInputDto.getUsuario();
-        password = pInputDto.getPassword();
-        name = pInputDto.getName();
-        surname = pInputDto.getSurname();
-        company_email = pInputDto.getCompany_email();
-        personal_email = pInputDto.getPersonal_email();
-        city = pInputDto.getCity();
-        active = pInputDto.getActive();
-        created_date = pInputDto.getCreated_date();
-        imagen_url = pInputDto.getImagen_url();
-        termination_date = pInputDto.getTermination_date();
+        try {
+            id_persona = pInputDto.getId_persona();
+            usuario = pInputDto.getUsuario();
+            password = pInputDto.getPassword();
+            name = pInputDto.getName();
+            surname = pInputDto.getSurname();
+            company_email = pInputDto.getCompany_email();
+            personal_email = pInputDto.getPersonal_email();
+            city = pInputDto.getCity();
+            active = pInputDto.getActive();
+            created_date = pInputDto.getCreated_date();
+            imagen_url = pInputDto.getImagen_url();
+            termination_date = pInputDto.getTermination_date();
+        }catch(Exception e){
+            throw new UnprocesableException(e.getMessage());
+        }
     }
 
     public void update(PersonaInputDto pInputDto) {
-        if (pInputDto == null) return;
-        id_persona = pInputDto.getId_persona();
-        usuario = pInputDto.getUsuario();
-        password = pInputDto.getPassword();
-        name = pInputDto.getName();
-        surname = pInputDto.getSurname();
-        company_email = pInputDto.getCompany_email();
-        personal_email = pInputDto.getPersonal_email();
-        city = pInputDto.getCity();
-        active = pInputDto.getActive();
-        created_date = pInputDto.getCreated_date();
-        imagen_url = pInputDto.getImagen_url();
-        termination_date = pInputDto.getTermination_date();
+        try {
+            id_persona = pInputDto.getId_persona();
+            usuario = pInputDto.getUsuario();
+            password = pInputDto.getPassword();
+            name = pInputDto.getName();
+            surname = pInputDto.getSurname();
+            company_email = pInputDto.getCompany_email();
+            personal_email = pInputDto.getPersonal_email();
+            city = pInputDto.getCity();
+            active = pInputDto.getActive();
+            created_date = pInputDto.getCreated_date();
+            imagen_url = pInputDto.getImagen_url();
+            termination_date = pInputDto.getTermination_date();
+        }catch (Exception e){
+            throw new RuntimeException(e.getMessage(),e.getCause());
+        }
     }
 
 }

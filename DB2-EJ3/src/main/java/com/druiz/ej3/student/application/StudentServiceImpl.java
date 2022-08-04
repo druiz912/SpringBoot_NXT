@@ -1,5 +1,7 @@
 package com.druiz.ej3.student.application;
 
+import com.druiz.ej3.exceptions.NotFoundException;
+import com.druiz.ej3.exceptions.UnprocesableException;
 import com.druiz.ej3.persona.domain.PersonaEntity;
 import com.druiz.ej3.persona.infrastructure.repository.IPersonaRepoJPA;
 import com.druiz.ej3.student.application.port.IStudentService;
@@ -11,11 +13,9 @@ import com.druiz.ej3.student.infrastructure.dto.output.StudentOutputDtoSimple;
 import com.druiz.ej3.student.infrastructure.repo.IStudentRepo;
 import com.druiz.ej3.studentCourse.domain.StudentCourseEntity;
 import com.druiz.ej3.studentCourse.infrastructure.dto.input.StudentCourseInputDtoAlone;
-import com.druiz.ej3.studentCourse.infrastructure.dto.output.StudentCourseOutputDto;
 import com.druiz.ej3.studentCourse.infrastructure.repo.IStudentCourseRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,28 +30,31 @@ public class StudentServiceImpl implements IStudentService {
     IPersonaRepoJPA repoPersona;
 
     @Autowired
-    IStudentCourseRepo studentCourseRepo;
+    IStudentCourseRepo repoCourse;
 
     @Override
-    public StudentOutputDto createStudent(StudentInputDto stuInputDto) throws Exception {
+    public StudentOutputDto createStudent(StudentInputDto stuInputDto) {
         List<StudentCourseEntity> ListCourse = new ArrayList<>();
         PersonaEntity personaEntity = repoPersona.findById(stuInputDto.getId_persona())
-                .orElseThrow(() -> new Exception("No se ha encontrado el ID de Persona"));
+                .orElseThrow(() -> new NotFoundException("No se ha encontrado el id:"+ stuInputDto.getId_persona()));
         StudentEntity studentEntity = new StudentEntity(stuInputDto);
         studentEntity.setPersona(personaEntity);
-
-
-        //studentEntity.setEstudios(ListCourse);
+        stuInputDto.getEstudios().forEach(estudios -> {
+            StudentCourseEntity asignaturaStudent = repoCourse.findById(estudios.getId_asignatura())
+                    .orElseThrow();
+            ListCourse.add(asignaturaStudent);
+        });
+        studentEntity.setEstudios(ListCourse);
         repoStudent.save(studentEntity);
         return new StudentOutputDto(studentEntity);
     }
 
     @Override
-    public StudentOutputDto getStudentById (String id, String outType) throws Exception {
+    public StudentOutputDto getStudentById(String id, String outType) throws NotFoundException, UnprocesableException {
         StudentEntity studentEntity = repoStudent.findById(id)
-                .orElseThrow(() -> new Exception("No se ha encontrado el ID de Estudiante"));
+                .orElseThrow(() -> new NotFoundException("No sé encontro la id"));
         if (outType.equalsIgnoreCase("simple"))
-            return new StudentOutputDtoSimple(studentEntity); //1º parte del ejercicio
+            return new StudentOutputDtoSimple(studentEntity);
         else
             return new StudentOutputDtoFull(studentEntity);
     }
@@ -66,14 +69,14 @@ public class StudentServiceImpl implements IStudentService {
     @Override
     public StudentOutputDto addCourse(String id, StudentCourseInputDtoAlone listaAsignaturas) {
         StudentEntity studentEntity = repoStudent.findById(id).get();
-        listaAsignaturas.getId().forEach(x -> {
-            StudentCourseEntity studentCourseEntity = studentCourseRepo.findById(x).get();
+        listaAsignaturas.getId().forEach(asignaturas -> {
+            StudentCourseEntity studentCourseEntity = repoCourse.findById(asignaturas).orElseThrow(
+                    ()-> new NotFoundException("No se ha encontrado la id:"+listaAsignaturas.getId()));
             studentEntity.addEstudios(studentCourseEntity);
             repoStudent.save(studentEntity);
         } );
         return new StudentOutputDto(studentEntity);
     }
-
 
     @Override
         public List<StudentOutputDto> getStudentByBranch (String branch){
@@ -84,18 +87,18 @@ public class StudentServiceImpl implements IStudentService {
         }
 
         @Override
-        public StudentOutputDto updateStudentById (StudentInputDto stuInputDto, String id) throws Exception {
+        public StudentOutputDto updateStudentById (StudentInputDto stuInputDto, String id) {
             StudentEntity studentEntity = repoStudent.findById(id)
-                    .orElseThrow(() -> new Exception("No se ha podido actualizar el estudiante con el ID: " + id));
+                    .orElseThrow(() -> new NotFoundException("No se ha podido actualizar el estudiante con el ID: " + id));
             studentEntity.update(stuInputDto);
             repoStudent.save(studentEntity);
             return new StudentOutputDto(studentEntity);
         }
 
         @Override
-        public void deleteStudentById (String id) throws Exception {
+        public void deleteStudentById (String id) {
             StudentEntity studentEntity = repoStudent.findById(id)
-                    .orElseThrow(() -> new Exception("No se ha podido borrar el Estudiante con ID: " + id));
+                    .orElseThrow(() -> new NotFoundException("No se ha podido borrar el Estudiante con ID: " + id));
             repoStudent.deleteById(id);
         }
     }

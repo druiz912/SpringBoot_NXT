@@ -1,8 +1,11 @@
 package com.druiz.ej3.student.domain;
 
 import com.druiz.ej3.persona.domain.PersonaEntity;
+import com.druiz.ej3.profesor.domain.ProfesorEntity;
 import com.druiz.ej3.shared.sequences.StringPrefixedSequenceIdGenerator;
 import com.druiz.ej3.student.infrastructure.dto.input.StudentInputDto;
+import com.druiz.ej3.student.infrastructure.dto.output.StudentOutputDto;
+import com.druiz.ej3.student.infrastructure.dto.output.StudentOutputDtoSimple;
 import com.druiz.ej3.studentCourse.domain.StudentCourseEntity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -44,6 +47,11 @@ public class StudentEntity implements Serializable {
     @JoinColumn(name = "id_persona", referencedColumnName = "id_persona")
     private PersonaEntity persona;
 
+    @ManyToOne
+    @JoinColumn(name = "profesorEntity")
+    private ProfesorEntity profesorEntity;
+
+
     @Column(name = "horas_por_semana", nullable = false)
     private Integer num_hours_week;
 
@@ -52,7 +60,7 @@ public class StudentEntity implements Serializable {
 
 
     @Column(name = "rama", nullable = false)
-    private String branch; //[not null] -- Rama principal delestudiante (Front, Back, FullStack)
+    private String branch;
 
 
     //EXPLICACION EMAR
@@ -72,11 +80,12 @@ public class StudentEntity implements Serializable {
         branch = stuInputDto.getBranch();
     }
 
-    public void update(StudentInputDto stuInputDto) {
-        if (stuInputDto == null) return;
-        num_hours_week = Integer.valueOf(stuInputDto.getNum_hours_week());
-        coments = stuInputDto.getComentarios();
-        branch = stuInputDto.getBranch();
-        //estudios = stuInputDto.getEstudios();
+    public void update(StudentInputDto studentInputDTO) {
+        if (studentInputDTO == null) return;
+        num_hours_week = Integer.valueOf(studentInputDTO.getNum_hours_week());
+        coments = studentInputDTO.getComentarios();
+        branch = studentInputDTO.getBranch();
+        //estudios = studentInputDTO.getEstudios();
     }
+
 }

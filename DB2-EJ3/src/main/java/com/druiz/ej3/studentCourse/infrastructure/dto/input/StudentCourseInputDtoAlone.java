@@ -1,6 +1,5 @@
 package com.druiz.ej3.studentCourse.infrastructure.dto.input;
 
-import com.druiz.ej3.studentCourse.domain.StudentCourseEntity;
 import lombok.Data;
 
 import java.io.Serializable;

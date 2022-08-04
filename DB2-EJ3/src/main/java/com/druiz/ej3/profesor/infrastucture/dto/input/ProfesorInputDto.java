@@ -2,10 +2,7 @@ package com.druiz.ej3.profesor.infrastucture.dto.input;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.NonNull;
-
 import java.io.Serializable;
-import java.util.List;
 
 @Data
 @NoArgsConstructor
