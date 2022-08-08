@@ -58,14 +58,14 @@ public class PersonaController {
     }
 
     //BS12
-    @CrossOrigin(origins = "https://cdpn.io", methods = RequestMethod.POST)
+    @CrossOrigin(origins = "https://cdpn.io")
     @PostMapping("/addperson")
     public ResponseEntity<PersonaOutputDto> addPersonaCORS(@RequestBody PersonaInputDto personaInputDto) throws Exception {
         return new ResponseEntity<>(personaService.addPersona(personaInputDto),HttpStatus.OK);
     }
 
 
-    @CrossOrigin(origins = "https://cdpn.io", methods = RequestMethod.GET)
+    @CrossOrigin(origins = "https://cdpn.io")
     @GetMapping("getall")
     public List<PersonaOutputDto> getAllUsuarios(@RequestParam(defaultValue = "persona", required = false) String outputType) {
         return personaService.getPersonas(outputType);

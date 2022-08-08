@@ -33,7 +33,6 @@ public class PersonaServiceImpl implements IPersonaService {
         }
     }
 
-    //Segunda parte del ejercicio
     @Override
     public PersonaOutputDto getPersonaId(String id, String outputType) throws Exception {
         if (outputType.equalsIgnoreCase("persona")) {
