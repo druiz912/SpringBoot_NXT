@@ -1,6 +1,0 @@
--Archivo subido desde el formulario del HTML(MVC)--> http://localhost:8080/
-    - Esta URL llama al controlador 'FileUploadController' y llama a:
-      - handleFileUpload(@RequestParam("file") MultipartFile file,
-                                   RedirectAttributes redirectAttributes) 
----------------------------------------------------------
-DATA2 COMPLETADO! 
