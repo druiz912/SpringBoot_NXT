@@ -1,0 +1,52 @@
+<!DOCTYPE HTML>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>SA-2 Subida de archivos</title>
+    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>
+</head>
+<body>
+
+<div class="alert alert-success" role="alert" th:if="${message}">
+    <h4 class="alert-heading">Bien!</h4>
+    <p th:text="${message}"></p>
+    <hr>
+</div>
+
+<div class="form-group">
+    <form method="POST" enctype="multipart/form-data" action="/" style="margin-block-start: 1em;">
+        <table style="border:5px double #acacac; width:55%; margin:auto;">
+            <tbody style="height:185px;">
+            <tr>
+                <td>Archivo para subir:</td>
+                <td><input style="width: 81%;" type="file" name="file"/></td>
+            </tr>
+            <tr>
+                <td>Categoría:</td>
+                <td><input type="text" name="categoria"/></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input type="submit" value="Subir" /></td>
+            </tr>
+            </tbody>
+        </table>
+    </form>
+    <button type="button" class="btn btn-dark" ><a href="http://localhost:8080/swagger-ui/index.html">Swagger UI</a></button>
+</div>
+
+<div>
+    <h3>Archivos guardados</h3>
+    <hr>
+    <ul class="list-group">
+        <li class="list-group-item" th:each="file : ${files}" >
+            <a th:href="${file}" th:text="${file}"></a>
+        </li>
+    </ul>
+</div>
+
+<script th:src="@{/webjars/jquery/3.0.0/jquery.min.js}"></script>
+<script th:src="@{/webjars/popper.js/1.12.9-1/umd/popper.min.js}"></script>
+<script th:src="@{/webjars/bootstrap/4.0.0-2/js/bootstrap.min.js}"></script>
+</body>
+</html>

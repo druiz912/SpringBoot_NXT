@@ -1,0 +1,6 @@
+-Archivo subido con POSTMAN --> http://localhost:8080/upload/txt
+    - Esta URL llama al controlador 'FileUploadController' y llama a:
+      - ResponseEntity UploadFileType(@RequestParam("file") Multipartfile file,
+				      @Pathvariable String tipo);
+---------------------------------------------------------
+DATA COMPLETADO!
