@@ -8,8 +8,20 @@
 
 ### `Los ejercicios están ordenados según he ido realizándolos:`
 ***
+- [x] [T-1 - Testing](https://github.com/druiz912/JAVA_EJERCICIOS/tree/master/T3-1)
+- [x] [SA-2 - Subiendo/Bajando fichero con Swagger & Thymeleaf](https://github.com/druiz912/JAVA_EJERCICIOS/tree/master/SA-2)
+- [x] [SA-1 - WebSockets](https://github.com/druiz912/JAVA_EJERCICIOS/tree/master/SA-1)
+- [x] [DBA-2 - CRUD MongoTemplate & MongoRepository con Swagger](https://github.com/druiz912/JAVA_EJERCICIOS/tree/master/DBA-2)
+- [x] [DBA-1 - CriteriaBuilder](https://github.com/druiz912/JAVA_EJERCICIOS/tree/master/DBA-1)
+- [x] [JVA-2 - Records](https://github.com/druiz912/JAVA_EJERCICIOS/tree/master/JVA-2)
+- [x] [Docker - Postgresql](https://github.com/druiz912/JAVA_EJERCICIOS/tree/master/EJ-Docker)
+- [x] [BS12 - CORS](https://github.com/druiz912/JAVA_EJERCICIOS/tree/master/BS-12)
+- [x] [BS10 - Swagger](https://github.com/druiz912/JAVA_EJERCICIOS/tree/master/BS-10)
+- [x] [BS9 - RestTemplate, Uso Feign](https://github.com/druiz912/JAVA_EJERCICIOS/tree/master/BS-9)
+- [x] [DB2.EJ3 - Custom Responses](https://github.com/druiz912/JAVA_EJERCICIOS/tree/master/DB2-EJ3)
+- [x] [BS8 - Custom Responses](https://github.com/druiz912/JAVA_EJERCICIOS/tree/master/BS-8)
 - [x] [BP1 - Arquitectura Hexagonal](https://github.com/druiz912/JAVA_EJERCICIOS/tree/master/BP-1)
-- [x] [EJ2 - CRUD con validación](https://github.com/druiz912/JAVA_EJERCICIOS/tree/master/crudvalidation)
+- [x] [DB1.EJ2 - CRUD con validación](https://github.com/druiz912/JAVA_EJERCICIOS/tree/master/crudvalidation)
 - [x] [BS5 - Logging en Spring Boot](https://github.com/druiz912/JAVA_EJERCICIOS/tree/master/BS-5)
 - [x] [BS4 - Properties en Spring Boot & Profiles](https://github.com/druiz912/JAVA_EJERCICIOS/tree/master/BS-4)
 - [x] [BS3 - Ciclo de vida Beans](https://github.com/druiz912/JAVA_EJERCICIOS/tree/master/BS-3)
