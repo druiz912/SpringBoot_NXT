@@ -2,10 +2,10 @@ package com.druiz.ej3.persona.application;
 
 import com.druiz.ej3.exceptions.NotFoundException;
 import com.druiz.ej3.exceptions.UnprocesableException;
-import com.druiz.ej3.persona.infrastructure.controller.dto.input.PersonaInputDto;
-import com.druiz.ej3.persona.infrastructure.controller.dto.output.PersonaOutputDto;
-import com.druiz.ej3.persona.infrastructure.controller.dto.output.PersonaProfesorOutputDto;
-import com.druiz.ej3.persona.infrastructure.controller.dto.output.PersonaStudentOutputDto;
+import com.druiz.ej3.persona.infrastructure.dto.input.PersonaInputDto;
+import com.druiz.ej3.persona.infrastructure.dto.output.PersonaOutputDto;
+import com.druiz.ej3.persona.infrastructure.dto.output.PersonaProfesorOutputDto;
+import com.druiz.ej3.persona.infrastructure.dto.output.PersonaStudentOutputDto;
 import com.druiz.ej3.persona.infrastructure.repository.IPersonaRepoJPA;
 import com.druiz.ej3.persona.application.port.IPersonaService;
 import com.druiz.ej3.persona.domain.PersonaEntity;

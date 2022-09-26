@@ -1,7 +1,7 @@
 package com.druiz.ej3.persona.domain;
 
 import com.druiz.ej3.exceptions.UnprocesableException;
-import com.druiz.ej3.persona.infrastructure.controller.dto.input.PersonaInputDto;
+import com.druiz.ej3.persona.infrastructure.dto.input.PersonaInputDto;
 import com.druiz.ej3.profesor.domain.ProfesorEntity;
 import com.druiz.ej3.shared.sequences.StringPrefixedSequenceIdGenerator;
 import com.druiz.ej3.student.domain.StudentEntity;

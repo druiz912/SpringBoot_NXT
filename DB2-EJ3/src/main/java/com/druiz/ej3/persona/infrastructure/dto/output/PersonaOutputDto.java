@@ -1,4 +1,4 @@
-package com.druiz.ej3.persona.infrastructure.controller.dto.output;
+package com.druiz.ej3.persona.infrastructure.dto.output;
 
 import com.druiz.ej3.persona.domain.PersonaEntity;
 import lombok.AllArgsConstructor;

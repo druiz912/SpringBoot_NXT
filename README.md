@@ -8,7 +8,7 @@
 
 ### `Los ejercicios están ordenados según he ido realizándolos:`
 ***
-- [x] [T-1 - Testing](https://github.com/druiz912/JAVA_EJERCICIOS/tree/master/T3-1)
+- [x] [TE-1 - Testing](https://github.com/druiz912/JAVA_EJERCICIOS/tree/master/T3-1)
 - [x] [SA-2 - Subiendo/Bajando fichero con Swagger & Thymeleaf](https://github.com/druiz912/JAVA_EJERCICIOS/tree/master/SA-2)
 - [x] [SA-1 - WebSockets](https://github.com/druiz912/JAVA_EJERCICIOS/tree/master/SA-1)
 - [x] [DBA-2 - CRUD MongoTemplate & MongoRepository con Swagger](https://github.com/druiz912/JAVA_EJERCICIOS/tree/master/DBA-2)

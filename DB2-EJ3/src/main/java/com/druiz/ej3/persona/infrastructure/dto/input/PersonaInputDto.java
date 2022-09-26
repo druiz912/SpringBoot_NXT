@@ -1,4 +1,4 @@
-package com.druiz.ej3.persona.infrastructure.controller.dto.input;
+package com.druiz.ej3.persona.infrastructure.dto.input;
 
 import com.sun.istack.NotNull;
 import lombok.Data;

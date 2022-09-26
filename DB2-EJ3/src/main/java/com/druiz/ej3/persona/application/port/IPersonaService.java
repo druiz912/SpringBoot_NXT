@@ -1,7 +1,7 @@
 package com.druiz.ej3.persona.application.port;
 
-import com.druiz.ej3.persona.infrastructure.controller.dto.input.PersonaInputDto;
-import com.druiz.ej3.persona.infrastructure.controller.dto.output.PersonaOutputDto;
+import com.druiz.ej3.persona.infrastructure.dto.input.PersonaInputDto;
+import com.druiz.ej3.persona.infrastructure.dto.output.PersonaOutputDto;
 
 import java.util.List;
 
