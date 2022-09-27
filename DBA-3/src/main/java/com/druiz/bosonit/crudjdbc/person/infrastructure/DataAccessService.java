@@ -43,8 +43,7 @@ public class DataAccessService implements PersonDAO {
     @Override
     public int deletePerson(int id) {
         var sql = """
-                DELETE FROM person   
-                WHERE id = ?
+                DELETE FROM person WHERE id = ?
                 """;
         return jdbcTemplate.update(sql, id);
     }

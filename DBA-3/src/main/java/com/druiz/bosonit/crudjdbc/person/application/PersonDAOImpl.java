@@ -26,23 +26,23 @@ public class PersonDAOImpl {
         // TODO: check if person exists
         int result = personDAO.insertPerson(person);
         if (result != 1) {
-            throw new IllegalStateException("oops something went wrong");
+            throw new IllegalStateException("Person can't insert");
         }
     }
 
-    public void deleteMovie(Integer id) {
+    public void deletePerson(Integer id) {
         Optional<Person> person = personDAO.selectPersonById(id);
-        person.ifPresentOrElse(movie -> {
+        person.ifPresentOrElse(persona -> {
             int result = personDAO.deletePerson(id);
             if (result != 1) {
-                throw new IllegalStateException("oops could not delete movie");
+                throw new IllegalStateException("Could not delete person");
             }
         }, () -> {
-            throw new NotFoundException(String.format("Movie with id %s not found", id));
+            throw new NotFoundException(String.format("Person with id %s not found", id));
         });
     }
 
     public Person getPerson(int id) {
-        return personDAO.selectPersonById(id).orElseThrow(new NotFoundException(String.format("Person id not found")));
+        return personDAO.selectPersonById(id).orElse(null);
     }
 }
