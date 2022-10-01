@@ -6,7 +6,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 @Component
 @ConfigurationProperties(prefix = "simple")
-public class myProperties {
+public class MyProps {
     @Value("${simple.VAR1}")
     private String var1;
     @Value("${simple.VAR2}")

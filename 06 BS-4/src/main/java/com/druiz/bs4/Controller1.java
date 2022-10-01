@@ -12,7 +12,7 @@ import javax.annotation.PostConstruct;
 @ComponentScan
 public class Controller1 {
     @Autowired
-    myProperties myproperties;
+    MyProps myproperties;
 
     @Bean
     public void init(){
