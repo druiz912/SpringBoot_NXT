@@ -1,9 +1,9 @@
-package com.druiz.crudvalidation.persona;
+package com.druiz.crudvalidation.persona.application;
 
-import com.druiz.crudvalidation.persona.dtos.PersonaInputDto;
-import com.druiz.crudvalidation.persona.dtos.PersonaOutputDto;
-import com.druiz.crudvalidation.persona.interfaces.IPersonaRepo;
-import com.druiz.crudvalidation.persona.interfaces.IPersonaService;
+import com.druiz.crudvalidation.persona.domain.Persona;
+import com.druiz.crudvalidation.persona.infrastructure.controller.dtos.PersonaInputDto;
+import com.druiz.crudvalidation.persona.infrastructure.controller.dtos.PersonaOutputDto;
+import com.druiz.crudvalidation.persona.infrastructure.repo.IPersonaRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
-public class PersonaServiceImpl implements IPersonaService {
+public class PersonaServiceImpl implements PersonaService {
 
     @Autowired
     IPersonaRepo repo;
@@ -50,26 +50,13 @@ public class PersonaServiceImpl implements IPersonaService {
 
 
     @Override
-    public void updatePersona(int id, PersonaInputDto p) {
+    public PersonaOutputDto updatePersona(int id, PersonaInputDto p) {
+        Persona personInDB = repo.findById(id).orElse(null);
+        personInDB.updateEntity(p);
+        repo.save(personInDB);
 
-        repo.findAll().forEach(persona -> {
-            if (persona.getId_persona() == id) {
-                persona.setId_persona(p.getId_persona());
-                persona.setName(p.getName());
-                persona.setSurname(p.getSurname());
-                persona.setUsuario(p.getUsuario());
-                persona.setPassword(p.getPassword());
-                persona.setPersonal_email(p.getPersonal_email());
-                persona.setCompany_email(p.getCompany_email());
-                persona.setCity(p.getCity());
-                persona.setImagen_url(p.getImagen_url());
-                persona.setCreated_date(p.getCreated_date());
-                persona.setTermination_date(p.getTermination_date());
-                persona.setActive(p.isActive());
-
-                repo.saveAndFlush(persona);
-            }
-        });
+        PersonaOutputDto personaOutputDTO = new PersonaOutputDto(personInDB);
+        return personaOutputDTO;
     }
 
     @Override

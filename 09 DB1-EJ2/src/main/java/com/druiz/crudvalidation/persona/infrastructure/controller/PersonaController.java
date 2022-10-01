@@ -1,26 +1,27 @@
-package com.druiz.crudvalidation;
+package com.druiz.crudvalidation.persona.infrastructure.controller;
 
-import com.druiz.crudvalidation.persona.interfaces.IPersonaService;
-import com.druiz.crudvalidation.persona.dtos.PersonaInputDto;
-import com.druiz.crudvalidation.persona.dtos.PersonaOutputDto;
+import com.druiz.crudvalidation.persona.application.PersonaService;
+import com.druiz.crudvalidation.persona.infrastructure.controller.dtos.PersonaInputDto;
+import com.druiz.crudvalidation.persona.infrastructure.controller.dtos.PersonaOutputDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-public class Controller {
+@RequestMapping("persona")
+public class PersonaController {
 
     @Autowired
-    IPersonaService personaService;
+    PersonaService personaService;
 
-    @PostMapping("/add")
+    @PostMapping
     public PersonaOutputDto addPersona(@RequestBody PersonaInputDto personInputDTO) throws Exception {
         return personaService.addPersona(personInputDTO);
     }
 
     @GetMapping("/id/{id}")
-    public PersonaOutputDto getPersonaId(@PathVariable("id_persona") int id) throws Exception {
+    public PersonaOutputDto getPersonaId(@PathVariable("id") int id) throws Exception {
         return personaService.getPersonaId(id);
     }
 
@@ -29,7 +30,7 @@ public class Controller {
         return personaService.getPersonaName(name);
     }
 
-    @GetMapping("/all")
+    @GetMapping
     public List<PersonaOutputDto> getPersons() {
         return personaService.getPersonas();
     }
@@ -40,7 +41,7 @@ public class Controller {
         System.out.println("Usuario con id: "+id+" ha sido modificado");
     }
 
-    @DeleteMapping("/eliminarPersona/{id}")
+    @DeleteMapping("{id}")
     public void deletePersona (@PathVariable int id) throws Exception{
         personaService.deletePersona(id);
         System.out.println("Usuario con id: "+id+" eliminado");
