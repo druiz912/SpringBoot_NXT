@@ -1,8 +1,8 @@
 package com.druiz.bs2.controllers;
 
 
-import com.druiz.bs2.services.CiudadService;
-import com.druiz.bs2.services.PersonaService;
+import com.druiz.bs2.services.city.CiudadService;
+import com.druiz.bs2.services.person.PersonaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,7 +20,7 @@ public class Controller2 {
     CiudadService ciudadService;
 
     @GetMapping("getPersona")
-    public PersonaService getPersonaServiceEdad() {
+    public PersonaService getEdadPersona() {
         personaService.setEdad(personaService.getEdad() * 2);
         return personaService;
     }
