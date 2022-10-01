@@ -1,0 +1,15 @@
+
+i
+java:S11922"LDefine a constant instead of duplicating this literal "Desconocida" 4 times.(ÔÆï8º…è‡¹0
+i
+java:S2095"LUse try-with-resources or close this "BufferedWriter" in a "finally" clause.(ğ­Ï8ø…è‡¹0
+i
+java:S2095("LUse try-with-resources or close this "BufferedReader" in a "finally" clause.(ã¡Âà8ù…è‡¹0
+d
+java:S2095"HUse try-with-resources or close this "FileWriter" in a "finally" clause.(Ê¬Ä98ù…è‡¹0
+k
+java:S2095"IUse try-with-resources or close this "PrintWriter" in a "finally" clause.(Â«ºıÿÿÿÿ8ù…è‡¹0
+o	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(×Íëæüÿÿÿÿ8ı…è‡¹0
+j	java:S100 "NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(óà—Ÿ8††è‡¹0
+U	java:S106G"9Replace this use of System.out or System.err by a logger.(ïşÁ±8Œ†è‡¹0
+U	java:S106M"9Replace this use of System.out or System.err by a logger.(ñ†¦8†è‡¹0

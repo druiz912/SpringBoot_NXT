@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/SpringReactiveWebFlux.iml" filepath="$PROJECT_DIR$/.idea/SpringReactiveWebFlux.iml" />
+      <module fileurl="file://$PROJECT_DIR$/back-reactive/webflux.iml" filepath="$PROJECT_DIR$/back-reactive/webflux.iml" />
+      <module fileurl="file://$PROJECT_DIR$/back-client-reactive/webflux (1).iml" filepath="$PROJECT_DIR$/back-client-reactive/webflux (1).iml" />
+    </modules>
+  </component>
+</project>
