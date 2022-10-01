@@ -3,8 +3,8 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
-import com.druiz.bs2.services.PersonaService;
-import com.druiz.bs2.services.PersonaServiceImpl;
+import com.druiz.bs2.services.person.PersonaService;
+import com.druiz.bs2.services.person.PersonaServiceImpl;
 	@SpringBootApplication
 	public class Bs2Application {
 		public static void main(String[] args) {
@@ -15,40 +15,32 @@ import com.druiz.bs2.services.PersonaServiceImpl;
 		@Bean
 		@Qualifier("getDataPersona")
 		public PersonaService getPersonaService() {
-			PersonaService pService = new PersonaServiceImpl();
-			return pService;
+			return new PersonaServiceImpl();
 		}
 
 		@Bean
-		@Qualifier("b1Qualifier")
+		@Qualifier("bean1")
 		public PersonaService getPersonaServiceBean1() {
-			PersonaService pService_1 = new PersonaServiceImpl();
-			pService_1.setNombre("bean1");
-			return pService_1;
+			PersonaService personaService = new PersonaServiceImpl();
+			personaService.setNombre("bean1");
+			return personaService;
 		}
 
 		@Bean
-		@Qualifier("b2Qualifier")
+		@Qualifier("bean2")
 		public PersonaService getPersonaServiceBean2() {
-			PersonaService pService_2 = new PersonaServiceImpl();
-			pService_2.setNombre("bean2");
-			return pService_2;
+			PersonaService personaService = new PersonaServiceImpl();
+			personaService.setNombre("bean2");
+			return personaService;
 		}
 
 		@Bean
-		@Qualifier("b3Qualifier")
+		@Qualifier("bean3")
 		public PersonaService getPersonaServiceBean3() {
-			PersonaService pService_3 = new PersonaServiceImpl();
-			pService_3.setNombre("bean3");
-			return pService_3;
+			PersonaService personaService = new PersonaServiceImpl();
+			personaService.setNombre("bean3");
+			return personaService;
 		}
 
-		@Bean
-		@Qualifier("b4Qualifier")
-		public PersonaService getPersonaServiceBean4() {
-			PersonaService pService_4 = new PersonaServiceImpl();
-			pService_4.setNombre("Parámetro incorrecto");
-			return pService_4;
-		}
 	}
 
