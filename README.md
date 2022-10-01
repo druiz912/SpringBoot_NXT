@@ -6,7 +6,7 @@
 #
 ![Bosonit-logo](https://cdn.bosonit.com/n-content/uploads/2021/12/bosonit_web.png)
 
-### `Los ejercicios están ordenados según he ido realizándolos:`
+### `Los ejercicios están ordenados según he ido realizándolos y arriba están enumerados por orden de ejercicios según el pdf:`
 ***
 - [x] [Spring Reactive - Webflux & MongoDB](https://github.com/druiz912/JAVA_EJERCICIOS/tree/master/27.1%20SpringWebfluxCRUDMongo)
 - [x] [Spring Reactive - Webflux & RoutesConfig & WebClient](https://github.com/druiz912/JAVA_EJERCICIOS/tree/master/27%20SpringReactiveWebFlux)
