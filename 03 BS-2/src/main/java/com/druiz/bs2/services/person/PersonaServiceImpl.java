@@ -1,4 +1,4 @@
-package com.druiz.bs2.services;
+package com.druiz.bs2.services.person;
 
 import com.druiz.bs2.models.Persona;
 import org.springframework.stereotype.Service;
@@ -8,15 +8,6 @@ public class PersonaServiceImpl implements PersonaService {
 
     Persona p = new Persona();
 
-    @Override
-    public String getNombre() {
-        return p.getNombre();
-    }
-
-    @Override
-    public String getPoblacion() {
-        return p.getPoblacion();
-    }
 
     @Override
     public int getEdad() {
@@ -29,8 +20,8 @@ public class PersonaServiceImpl implements PersonaService {
     }
 
     @Override
-    public void setPoblacion(String poblacion) {
-        p.setPoblacion(poblacion);
+    public void setCiudad(String ciudad) {
+        p.setCiudad(ciudad);
     }
 
     @Override

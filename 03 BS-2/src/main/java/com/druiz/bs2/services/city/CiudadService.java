@@ -1,4 +1,4 @@
-package com.druiz.bs2.services;
+package com.druiz.bs2.services.city;
 
 import com.druiz.bs2.models.Ciudad;
 
