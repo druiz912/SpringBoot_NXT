@@ -1,4 +1,4 @@
-package com.druiz.logging;
+package com.druiz.bosonit.logs;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

@@ -1,4 +1,4 @@
-package com.druiz.logging;
+package com.druiz.bosonit.logs;
 
 
 import lombok.extern.slf4j.Slf4j;
