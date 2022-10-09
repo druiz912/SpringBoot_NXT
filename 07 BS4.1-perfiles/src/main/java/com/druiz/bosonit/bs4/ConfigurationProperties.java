@@ -1,12 +1,12 @@
-package com.example.bs41;
+package com.druiz.bosonit.bs4;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 
 @Configuration
-@PropertySource("miconfiguracion.properties")
-public class MyConfiguration {
+@PropertySource("myconfiguration.properties")
+public class ConfigurationProperties {
 
     @Value("${valor1}")
     private String valor1;

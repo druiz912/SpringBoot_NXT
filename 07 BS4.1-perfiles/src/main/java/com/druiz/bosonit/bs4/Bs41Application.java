@@ -1,4 +1,4 @@
-package com.example.bs41;
+package com.druiz.bosonit.bs4;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

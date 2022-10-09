@@ -1,11 +1,12 @@
-package com.example.bs41;
+package com.druiz.bosonit.bs4;
 
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 
 @Component
-@Profile("profile2")
-public class Profile2 implements ProfileInterface {
+@Profile("profile1")
+public class Profile1 implements ProfileInterface {
+
     private String profile = "perfil2";
 
     @Override

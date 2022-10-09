@@ -1,4 +1,4 @@
-package com.example.bs41;
+package com.druiz.bosonit.bs4;
 
 public interface ProfileInterface {
 
