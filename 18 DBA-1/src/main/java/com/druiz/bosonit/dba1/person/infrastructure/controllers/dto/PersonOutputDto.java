@@ -1,22 +1,22 @@
-package com.druiz.bosonit.dba1.persona.infrastructure.dto;
+package com.druiz.bosonit.dba1.person.infrastructure.controllers.dto;
 
-import com.druiz.bosonit.dba1.persona.domain.PersonaEntity;
+import com.druiz.bosonit.dba1.person.domain.Person;
 
-import java.util.Date;
+import java.time.LocalDate;
 
-public record PersonaOutputDto(
+public record PersonOutputDto(
         String user_persona,
         String name,
         String surname,
         String address,
         String email,
-        Date created
+        LocalDate created
 ) {
 
 
-    public PersonaOutputDto(PersonaEntity p){
+    public PersonOutputDto(Person p){
         this(
-                p.getUser_persona(),
+                p.getUser(),
                 p.getName(),
                 p.getSurname(),
                 p.getAddress(),
