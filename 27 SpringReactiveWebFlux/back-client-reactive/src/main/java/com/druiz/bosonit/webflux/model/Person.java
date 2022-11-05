@@ -2,6 +2,9 @@ package com.druiz.bosonit.webflux.model;
 
 import org.springframework.data.annotation.Id;
 
+import java.util.HashMap;
+import java.util.Map;
+
 
 public class Person {
 
@@ -10,6 +13,15 @@ public class Person {
     private String name;
     private String surname;
     private String mail;
+
+    public Person surname(String surname){
+        this.surname = surname;
+        return this;
+    }
+
+    Map<String,String> key = new HashMap<>();
+
+    
 
 
     public int getId() {

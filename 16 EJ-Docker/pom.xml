@@ -8,10 +8,10 @@
         <version>2.7.1</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.druiz</groupId>
+    <groupId>com.druiz.bosonit</groupId>
     <artifactId>docker</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>bs-12</name>
+    <name>ejercicio docker</name>
     <description>Ejercicio de Docker</description>
     <properties>
         <java.version>18</java.version>
