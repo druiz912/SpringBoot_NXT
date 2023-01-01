@@ -24,7 +24,7 @@
 - [x] [BS12 - CORS](https://github.com/druiz912/JAVA_EJERCICIOS/tree/master/15%20BS-12)
 - [x] [BS10 - Swagger](https://github.com/druiz912/JAVA_EJERCICIOS/tree/master/14%20BS-10)
 - [x] [BS9 - RestTemplate, Uso Feign](https://github.com/druiz912/JAVA_EJERCICIOS/tree/master/13%20BS-9)
-- [x] [DB2.EJ3 - Custom Responses](https://github.com/druiz912/JAVA_EJERCICIOS/tree/master/12%20DB2-EJ3)
+- [x] [DB2.EJ3 - CRUD](https://github.com/druiz912/JAVA_EJERCICIOS/tree/master/12%20DB2-EJ3)
 - [x] [BS8 - Custom Responses](https://github.com/druiz912/JAVA_EJERCICIOS/tree/master/11%20BS-8)
 - [x] [BP1 - Arquitectura Hexagonal](https://github.com/druiz912/JAVA_EJERCICIOS/tree/master/10%20BP-1)
 - [x] [DB1.EJ2 - CRUD con validación](https://github.com/druiz912/JAVA_EJERCICIOS/tree/master/09%20DB1-EJ2)
