@@ -11,16 +11,16 @@ import org.hibernate.annotations.GenericGenerator;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 
 @Getter
 @Setter
-@ToString
-@RequiredArgsConstructor
 @Entity
-@Table(name = "teacher")
+@Table(name = "teachers")
 @NoArgsConstructor
+@AllArgsConstructor
 public class Teacher implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "profesorSeq")
@@ -35,19 +35,24 @@ public class Teacher implements Serializable {
             })
     private String idTeacher;
 
-    @OneToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "id_persona")
-    @ToString.Exclude
-    private Person persona;
+    @OneToOne
+    @JoinColumn(name = "personID")
+    Person person;
 
-    @OneToMany(mappedBy = "profesor", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @ToString.Exclude
-    private Set<Subject> courseStudent = new HashSet<>();
+    @OneToMany
+    @JoinColumn(name = "subjectID")
+    List<Subject> subjects;
+
     @Column(name = "comentarios")
     private String comments;
     @Column(name = "rama", nullable = false)
     private String branch;
 
+    public Teacher(TeacherInputDto teacherInputDTO, Person personEntity){
+        comments = teacherInputDTO.getComentarios();
+        branch = teacherInputDTO.getBranch();
+        person = personEntity;
+    }
 
     public void update(TeacherInputDto teacherInputDTO) {
         comments = teacherInputDTO.getComentarios();
@@ -65,5 +70,15 @@ public class Teacher implements Serializable {
     @Override
     public int hashCode() {
         return getClass().hashCode();
+    }
+
+    @Override
+    public String toString() {
+        return "Teacher{" +
+                "idTeacher='" + idTeacher + '\'' +
+                ", person=" + person +
+                ", comments='" + comments + '\'' +
+                ", branch='" + branch + '\'' +
+                '}';
     }
 }

@@ -6,15 +6,10 @@ import com.druiz.bosonit.db2.teacher.infrastucture.controller.dto.output.Teacher
 import java.util.List;
 
 public interface TeacherService {
-    //Create
-    TeacherOutputDto addProfe(TeacherInputDto profeInputDto);
-    //Read
-    TeacherOutputDto getProfesorByID(String id);
-    List<TeacherOutputDto> getAllProfesores();
-    List<TeacherOutputDto> getProfesorByBranch(String branch);
-    //Update
-    TeacherOutputDto updateProfesor(String id, TeacherInputDto profeInputDto);
-    //Delete
-    void deleteProfesorByID(String id);
+    List<TeacherOutputDto> getAllTeachers();
+
+    TeacherOutputDto getTeacherByID(Integer id);
+
+    TeacherOutputDto postTeacher(TeacherInputDto teacherInputDTO);
 
 }

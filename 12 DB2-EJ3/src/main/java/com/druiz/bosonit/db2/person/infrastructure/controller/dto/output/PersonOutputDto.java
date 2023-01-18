@@ -14,7 +14,6 @@ import java.util.Date;
 public class PersonOutputDto implements Serializable {
     private String idPerson;
     private String user;
-    private String password;
     private String name;
     private String surname;
     private String companyMail;
@@ -31,7 +30,6 @@ public class PersonOutputDto implements Serializable {
         } else {
             setIdPerson(persona.getIdPerson());
             setName(persona.getName());
-            setPassword(persona.getPassword());
             setName(persona.getName());
             setSurname(persona.getSurname());
             setCompanyMail(persona.getCompanyMail());

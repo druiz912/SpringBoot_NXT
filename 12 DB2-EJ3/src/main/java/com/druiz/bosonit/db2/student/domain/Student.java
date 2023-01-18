@@ -17,8 +17,6 @@ import java.util.Objects;
 
 @Getter
 @Setter
-@ToString
-@RequiredArgsConstructor
 @Entity
 @Table(name = "student")
 @NoArgsConstructor
@@ -44,15 +42,9 @@ public class Student implements Serializable {
     private String idStudent;
 
     //RELACION 1:1 CON LA TABLA PERSONA
-    @OneToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "id_persona", referencedColumnName = "id_persona")
-    @ToString.Exclude
-    private Person persona;
-
-    @ManyToOne
-    @JoinColumn(name = "profesorEntity")
-    private Teacher teacher;
-
+    @OneToOne
+    @JoinColumn(name = "person_id")
+    Person person;
 
     @Column(name = "horas_por_semana", nullable = false)
     private Integer numHoursWeek;
@@ -60,20 +52,11 @@ public class Student implements Serializable {
     @Column(name = "comentarios")
     private String comments;
 
-
     @Column(name = "rama", nullable = false)
     private String branch;
 
-
-    //EXPLICACION EMAR
-    @ManyToMany(fetch = FetchType.LAZY)
-    @JoinColumn(name = "estudios")
-    @ToString.Exclude
-    private List<Subject> estudios = new ArrayList<>();
-
-    public void addEstudios (Subject studentCourse){
-        estudios.add(studentCourse);
-    }
+    @ManyToMany(mappedBy = "students")
+    List<Subject> subjects = new ArrayList<>();
 
 
     public void update(StudentInputDto studentInputDTO) {
@@ -90,6 +73,17 @@ public class Student implements Serializable {
         Student student = (Student) o;
         return idStudent != null && Objects.equals(idStudent, student.idStudent);
     }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "idStudent='" + idStudent + '\'' +
+                ", numHoursWeek=" + numHoursWeek +
+                ", comments='" + comments + '\'' +
+                ", branch='" + branch + '\'' +
+                '}';
+    }
+
 
     @Override
     public int hashCode() {

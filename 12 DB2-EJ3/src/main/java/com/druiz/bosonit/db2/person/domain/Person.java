@@ -48,15 +48,6 @@ public class Person implements Serializable {
             })
     private String idPerson;
 
-    // RELACION CON Student 1:1
-    @OneToOne(mappedBy = "persona", cascade = CascadeType.ALL)
-    @ToString.Exclude
-    private Student student;
-
-    @OneToOne(mappedBy = "persona", cascade = CascadeType.ALL)
-    @ToString.Exclude
-    private Teacher profesor;
-
     @Size(min = 6, max = 10)
     @Column(name = "usuario", nullable = false)
     private String user;

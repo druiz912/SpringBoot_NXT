@@ -9,5 +9,5 @@ import org.springframework.web.bind.annotation.PathVariable;
 @FeignClient(name = "simpleFeign", url = "http://localhost:8080")
 public interface PersonFeign {
     @GetMapping("/teacher/id/{httpCode}")
-    ResponseEntity<TeacherOutputDto> callServer(@PathVariable("httpCode") String httpCode);
+    ResponseEntity<TeacherOutputDto> getTeacher(@PathVariable("httpCode") String httpCode);
 }

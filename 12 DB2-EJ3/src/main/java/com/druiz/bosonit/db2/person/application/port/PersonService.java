@@ -2,22 +2,32 @@ package com.druiz.bosonit.db2.person.application.port;
 
 import com.druiz.bosonit.db2.person.infrastructure.controller.dto.input.PersonInputDto;
 import com.druiz.bosonit.db2.person.infrastructure.controller.dto.output.PersonOutputDto;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface PersonService {
-    //Crear una person
-    PersonOutputDto addPersona(PersonInputDto personInputDTO);
+    List<PersonOutputDto> findAllPersons();
 
-    //Obtener una person x su id
-    PersonOutputDto getPersonaId(String id, String outputType);
+    boolean existsPerson(int id);
 
-    //Obtener una person por su nombre
-    List<PersonOutputDto> getPersonaName(String name, String outputType);
+    PersonOutputDto findPersonById(String id);
 
-    List<PersonOutputDto> getPersonas(String outputType);
+    List<PersonOutputDto> findPersonByName(String name);
 
-    PersonOutputDto updatePersona(String id, PersonInputDto pInputDto);
+    List<PersonOutputDto> getPersonWithCriteriaQuery (
+            Optional<String> name,
+            Optional<String>  surname,
+            Optional<String>  company,
+            Optional<String>  teacherName);
 
-    void deletePersona(String id) ;
+    PersonOutputDto addPerson(PersonInputDto personInputDTO) throws MethodArgumentNotValidException;
+
+    PersonOutputDto updatePerson(String id, PersonInputDto personaInputDTO);
+
+    PersonOutputDto deletePerson(String id);
+
+    ResponseEntity<?> getTeacherWithTemplate(String id);
 }

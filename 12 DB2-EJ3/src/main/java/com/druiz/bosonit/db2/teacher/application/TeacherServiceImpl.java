@@ -2,6 +2,7 @@ package com.druiz.bosonit.db2.teacher.application;
 
 import com.druiz.bosonit.db2.person.domain.Person;
 import com.druiz.bosonit.db2.person.infrastructure.repository.PersonRepo;
+import com.druiz.bosonit.db2.student.infrastructure.repo.StudentRepo;
 import com.druiz.bosonit.db2.teacher.infrastucture.controller.dto.input.TeacherInputDto;
 import com.druiz.bosonit.db2.teacher.infrastucture.controller.dto.output.TeacherOutputDto;
 import com.druiz.bosonit.db2.utils.exceptions.NotFoundException;
@@ -20,82 +21,45 @@ import java.util.List;
 public class TeacherServiceImpl implements TeacherService {
 
     @Autowired
-    PersonRepo personRepo;
+    TeacherRepo teacherRepository;
+
     @Autowired
-    TeacherRepo teacherRepo;
+    StudentRepo studentRepository;
+
     @Autowired
-    TeacherMapper teacherMapper;
-
+    PersonRepo personRepository;
 
     @Override
-    public TeacherOutputDto addProfe(TeacherInputDto teacherInput) {
-        try{
-            Person person = personRepo.findById(teacherInput.getIdPerson()).orElseThrow(
-                    () -> new NotFoundException("No se encuentra el id: " + teacherInput.getIdPerson()));
-            Teacher teacher = teacherMapper.toEntity(teacherInput);
-            // Asignamos al profesor la persona
-            teacher.setPersona(person);
-            teacherRepo.save(teacher);
-            return teacherMapper.toOutput(teacher);
-        }catch (Exception e){
-            throw new UnprocesableException(e.getMessage());
+    public List<TeacherOutputDto> getAllTeachers() {
+        List<TeacherOutputDto> teacherOutputDTOList = new ArrayList<>();
+        for(Teacher teacherEntity : teacherRepository.findAll()){
+            teacherOutputDTOList.add(new TeacherOutputDto(teacherEntity));
         }
-
+        return teacherOutputDTOList;
     }
 
     @Override
-    public TeacherOutputDto getProfesorByID(String id) {
-        Teacher teacher = teacherRepo.findById(id)
-                .orElseThrow(() -> new NotFoundException("No se ha encontrado al Profesor con ID: " + id));
-        return teacherMapper.toOutput(teacher);
+    public TeacherOutputDto getTeacherByID(String id) {
+        if(!teacherRepository.existsById(id))
+            throw new RuntimeException("Teacher with id: " + id + " doesnt exists.");
+
+        TeacherOutputDto teacherOutputDTO = new TeacherOutputDto(teacherRepository.findById(id).orElse(null));
+        return teacherOutputDTO;
     }
 
     @Override
-    public List<TeacherOutputDto> getAllProfesores() {
-        List<TeacherOutputDto> listTeacherOutputDto = new ArrayList<>();
-        teacherRepo.findAll();
-        teacherRepo.findAll().forEach(teacherInDB -> {
-            TeacherOutputDto teacherOutputDTO = teacherMapper.toOutput(teacherInDB);
-            listTeacherOutputDto.add(teacherOutputDTO);
-        });
-        return listTeacherOutputDto;
+    public TeacherOutputDto postTeacher(TeacherInputDto teacherInputDTO) throws  RuntimeException{
+        Person personEntity = personRepository.findById(teacherInputDTO.getIdPerson()).orElse(null);
 
-    }
+        if(personEntity==null ||
+                teacherRepository.getPersonQuery(teacherInputDTO.getIdPerson()) != null ||
+                studentRepository.getPersonQuery(teacherInputDTO.getIdPerson()) != null
+        )
+            throw new RuntimeException("Teacher object must have a correct person reference.");
 
-    @Override
-    public List<TeacherOutputDto> getProfesorByBranch(String branch) {
-        List<TeacherOutputDto> listTeacherOutputDto = new ArrayList<>();
-        if (teacherRepo.findByBranch(branch) != null) {
-            teacherRepo.findByBranch(branch).forEach(teacherInDB -> {
-                TeacherOutputDto teacherOutputDTO = teacherMapper.toOutput(teacherInDB);
-                listTeacherOutputDto.add(teacherOutputDTO);
-            });
-            return listTeacherOutputDto;
+        Teacher teacherEntity = new Teacher(teacherInputDTO, personEntity);
+        teacherRepository.save(teacherEntity);
 
-        } else {
-           return null; //cambiar
-        }
-    }
-
-    @Override
-    public TeacherOutputDto updateProfesor(String id, TeacherInputDto profeInputDto) {
-        try{
-            Teacher teacher = teacherRepo.findById(id).orElseThrow(
-                    () -> new NotFoundException("No se ha podido actualizar al Pofesor con ID: " + id));
-            teacher.update(profeInputDto);
-            teacherRepo.save(teacher);
-            return teacherMapper.toOutput(teacher);
-        }catch(Exception e){
-            throw new UnprocesableException(e.getMessage());
-        }
-
-    }
-
-    @Override
-    public void deleteProfesorByID(String id) {
-        teacherRepo.findById(id).orElseThrow(
-                () -> new NotFoundException("No se ha encontrado al Profesor con el ID: " + id));
-        teacherRepo.deleteById(id);
-
+        return new TeacherOutputDto(teacherEntity);
     }
 }
